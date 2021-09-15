@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zj.dao.EmpDao">
+
+    <!--    查询 -->
+    <select id="findAllEmp" resultType="Emp">
+        select id, name, age, bir, address from  emp
+    </select>
+
+    <!--    添加-->
+    <insert id="insertEmp" parameterType="Emp">
+        insert into emp (name , age , bir , address) value (#{name}, #{age}, #{bir}, #{address})
+    </insert>
+
+    <!--    删除-->
+    <delete id="deleteEmp" parameterType="Integer">
+        delete from emp   where id = #{id}
+    </delete>
+
+    <!--    修改-->
+    <update id="updateEmp" parameterType="emp">
+        update emp set name=(#{name}),age=(#{age}),bir=(#{bir}),address=(#{address}) where id = (#{id})
+    </update>
+
+    <select id="queryEmp" parameterType="int" resultType="Emp">
+        select id , name ,age , bir , address from Emp where id=#{id}
+    </select>
+</mapper>
